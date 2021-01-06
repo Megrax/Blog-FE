@@ -2,6 +2,8 @@
 
 ### The Front-End of my blog project built with Vue.js.
 
+---
+
 ## Building and running on localhost
 
 First install dependencies:
