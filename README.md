@@ -1,2 +1,3 @@
 # Blog-FE
-build a blog with Vue.js
+
+### The Front-End of my blog project built with Vue.js.
