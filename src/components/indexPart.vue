@@ -22,9 +22,9 @@
                             <div class="des" id="dis-post-des-first">
                                 <div class="time icon-calendar">2020.10.9</div>
                                 <div class="title">
-                                    <a href="#">
+                                    <router-link to="/blog/post">
                                         <h2>第一篇博文</h2>
-                                    </a>
+                                    </router-link>
                                 </div>
                                 <div class="tag-area">
                                     <div class="tag">#Blog</div>

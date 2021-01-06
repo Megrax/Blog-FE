@@ -1,0 +1,171 @@
+.bodywrapper {
+	width: 800px;
+	border: 5px solid #222831;
+	padding: 0 10px;
+	margin: 0 auto;
+}
+
+.bodywrapper h1 {
+	font-size: 2em;
+}
+
+.h2 {
+	font-size: 1.5em;
+	color: #000;
+	font-weight: bolder;
+}
+
+.example-title {
+	border-left: 2px solid #448ef6;
+	padding-left: 10px;
+}
+hr {
+	color: #eee;
+}
+
+.alert_box {
+	width: 98%;
+	height: 45px;
+	padding-left: 20px;
+	margin-bottom: 15px;
+	border-radius: 3px;
+	line-height: 45px;
+}
+
+#first {
+	background-color: rgba(68, 142, 246, 0.2);
+	color: rgb(68, 142, 246);
+}
+
+#second {
+	background-color: rgba(57, 62, 70, 0.2);
+	color: rgb(57, 62, 70);
+}
+
+#third {
+	background-color: rgba(40, 167, 69, 0.2);
+	color: rgb(40, 167, 69);
+}
+
+#forth {
+	background-color: rgba(220, 53, 69, 0.2);
+	color: rgb(220, 53, 69);
+}
+
+#fifth {
+	background-color: rgba(255, 193, 7, 0.2);
+	color: rgb(255, 193, 7);
+}
+
+#sixth {
+	background-color: rgba(23, 162, 184, 0.2);
+	color: rgb(23, 162, 184);
+}
+
+#seventh {
+	background-color: rgba(34, 40, 49, 0.2);
+	color: rgb(34, 40, 49);
+}
+
+button {
+	display: inline-block;
+	width: 90px;
+	height: 35px;
+	border-radius: 3px;
+}
+
+.primary {
+	color: rgb(68, 142, 246);
+	background-color: #fff;
+	border: 1px solid rgb(68, 142, 246);
+}
+
+.secondary {
+	color: rgb(57, 62, 70);
+	background-color: #fff;
+	border: 1px solid rgb(57, 62, 70);
+}
+
+.success {
+	color: rgb(40, 167, 69);
+	background-color: #fff;
+	border: 1px solid rgb(40, 167, 69);
+}
+
+.danger {
+	color: rgb(220, 53, 69);
+	background-color: #fff;
+	border: 1px solid rgb(220, 53, 69);
+}
+
+.warning {
+	color: rgb(255, 193, 7);
+	background-color: #fff;
+	border: 1px solid rgb(255, 193, 7);
+}
+
+.info {
+	color: rgb(23, 162, 184);
+	background-color: #fff;
+	border: 1px solid rgb(23, 162, 184);
+}
+
+.light {
+	color: #222831;
+	background-color: #fff;
+	border: 1px solid #f2f2f5;
+}
+
+.dark {
+	color: #222831;
+	background-color: #fff;
+	border: 1px solid #222831;
+}
+
+.upper .primary {
+	color: #fff;
+	background-color: rgb(68, 142, 246);
+	border: 1px solid rgb(68, 142, 246);
+}
+
+.upper .secondary {
+	color: #fff;
+	background-color: rgb(57, 62, 70);
+	border: 1px solid rgb(57, 62, 70);
+}
+
+.upper .success {
+	color: #fff;
+	background-color: rgb(40, 167, 69);
+	border: 1px solid rgb(40, 167, 69);
+}
+
+.upper .danger {
+	color: #fff;
+	background-color: rgb(220, 53, 69);
+	border: 1px solid rgb(220, 53, 69);
+}
+
+.upper .warning {
+	color: #222831;
+	background-color: rgb(255, 193, 7);
+	border: 1px solid rgb(255, 193, 7);
+}
+
+.upper .info {
+	color: #fff;
+	background-color: rgb(23, 162, 184);
+	border: 1px solid rgb(23, 162, 184);
+}
+
+.upper .light {
+	color: #222831;
+	background-color: #f2f2f5;
+	border: 1px solid #f2f2f5;
+}
+
+.upper .dark {
+	color: #fff;
+	background-color: #222831;
+	border: 1px solid #222831;
+}
