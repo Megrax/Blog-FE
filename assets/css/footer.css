@@ -1,0 +1,21 @@
+footer {
+	width: 100vw;
+	height: 50px;
+	padding-top: 30px;
+	margin-top: 100px;
+	background-color: #262526;
+}
+
+footer .copyright {
+	font-size: 17px;
+	text-align: center;
+	color: snow;
+}
+
+footer .copyright a {
+	color: snow;
+}
+
+footer .copyright a:hover {
+	text-decoration: underline;
+}

@@ -1,0 +1,277 @@
+@font-face {
+	font-family: "Zilla Slab Regular";
+	font-style: normal;
+	font-weight: 400;
+	src: url("../fonts/ZillaSlab-Regular.woff2") format("woff2");
+}
+@font-face {
+	font-family: "NotoSerifSC-Regular";
+	font-style: normal;
+	font-weight: 400;
+	src: url("../fonts/NotoSerifSC-Regular.otf") format("OpenType");
+}
+@font-face {
+	font-family: "icomoon";
+	src: url("../fonts/icomoon.eot?e8mhee");
+	src: url("../fonts/icomoon.eot?e8mhee#iefix") format("embedded-opentype"),
+		url("../fonts/icomoon.ttf?e8mhee") format("truetype"),
+		url("../fonts/icomoon.woff?e8mhee") format("woff"),
+		url("../fonts/icomoon.svg?e8mhee#icomoon") format("svg");
+	font-weight: normal;
+	font-style: normal;
+	font-display: block;
+}
+
+.icon-home2:before {
+	content: "\e901";
+	font-family: "icomoon";
+	margin-right: 7px;
+}
+.icon-pacman:before {
+	content: "\e916";
+	font-family: "icomoon";
+	margin-right: 7px;
+}
+.icon-clubs:before {
+	content: "\e918";
+	font-family: "icomoon";
+	margin-right: 7px;
+}
+.icon-bullhorn:before {
+	content: "\e91a";
+	font-family: "icomoon";
+	margin-right: 7px;
+}
+.icon-books:before {
+	content: "\e920";
+	font-family: "icomoon";
+	margin-right: 7px;
+}
+.icon-quotes-left:before {
+	content: "\e977";
+	font-family: "icomoon";
+	margin-right: 7px;
+}
+.icon-search:before {
+	content: "\e986";
+	font-family: "icomoon";
+	margin-right: 7px;
+}
+.icon-cog:before {
+	content: "\e994";
+	font-family: "icomoon";
+	margin-right: 7px;
+}
+.icon-leaf:before {
+	content: "\e9a4";
+	font-family: "icomoon";
+	margin-right: 7px;
+}
+.icon-contrast:before {
+	content: "\e9d5";
+	font-family: "icomoon";
+	margin-right: 7px;
+}
+.icon-arrow-up2:before {
+	content: "\ea3a";
+	font-family: "icomoon";
+	margin-right: 7px;
+}
+.icon-calendar:before {
+	content: "\e953";
+	font-family: "icomoon";
+	margin-right: 7px;
+}
+
+/* 小火箭css */
+#gotop1 {
+	width: 80px;
+	position: fixed;
+	bottom: 90px;
+	cursor: pointer;
+	z-index: 99998;
+	right: 50%;
+	margin-right: -620px;
+}
+/* 小火箭悬停特效 */
+#gotop1:hover {
+	animation: rubberBand 1s;
+}
+
+@keyframes rubberBand {
+	from {
+		transform: scale3d(1, 1, 1);
+	}
+
+	30% {
+		transform: scale3d(1.25, 0.75, 1);
+	}
+
+	40% {
+		transform: scale3d(0.75, 1.25, 1);
+	}
+
+	50% {
+		transform: scale3d(1.15, 0.85, 1);
+	}
+
+	65% {
+		transform: scale3d(0.95, 1.05, 1);
+	}
+
+	75% {
+		transform: scale3d(1.05, 0.95, 1);
+	}
+
+	to {
+		transform: scale3d(1, 1, 1);
+	}
+}
+/* end 小火箭 */
+
+* {
+	padding: 0;
+	margin: 0;
+}
+
+.hidden {
+	display: none !important;
+}
+
+html {
+	box-sizing: border-box;
+}
+
+a {
+	text-decoration: none;
+	color: #4f4b4d;
+}
+
+li {
+	list-style: none;
+}
+
+button,
+input,
+textarea {
+	font-family: NotoSerifSC-Regular, Microsoft YaHei, Helvetica, Heiti SC,
+		tahoma, arial, Hiragino Sans GB, "\5B8B\4F53", sans-serif;
+	border: 0;
+	outline: none;
+}
+
+h2 {
+	font-weight: 400;
+	font-size: 18px;
+	color: #666666;
+}
+
+body {
+	position: relative;
+	display: flex;
+	flex-flow: column nowrap;
+	background-color: #fff;
+	font-family: "NotoSerifSC-Regular";
+}
+
+header {
+	display: flex;
+	flex-flow: row nowrap;
+	height: 59px;
+	width: 100vw;
+	box-shadow: 0 0 6px -3px;
+	background-color: #fff;
+}
+
+header h1 {
+	display: inline-block;
+	font-family: "Zilla Slab Regular";
+	font-size: 27px;
+	font-weight: 400;
+	margin-right: 20px;
+}
+
+.head-pic {
+	width: 100vw;
+	height: 100vh;
+	background: url(../img/head-1.jpg) no-repeat center;
+	background-size: cover;
+}
+
+.top-nav {
+	display: flex;
+	justify-content: center;
+	width: 100vw;
+	display: flex;
+	align-items: center;
+	z-index: 2;
+	background-color: #fff;
+	position: fixed;
+}
+
+.list-wrapper {
+	width: 800px;
+	height: 59px;
+}
+
+header ul li {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	float: left;
+	width: 73px;
+	height: 59px;
+	margin-right: 5px;
+}
+
+header ul li:hover {
+	color: lightskyblue;
+}
+
+header ul .icon-search {
+	width: 35px;
+	cursor: pointer;
+}
+
+header ul .icon-contrast {
+	width: 35px;
+	cursor: pointer;
+}
+
+.lists {
+	position: relative;
+}
+
+.lists:hover .dropdown-content {
+	display: block;
+}
+
+.dropdown-content {
+	display: none;
+	position: absolute;
+	top: 39px;
+	background-color: #fff;
+	min-width: 100px;
+	box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+}
+
+.dropdown-content a {
+	color: black;
+	padding: 12px 16px;
+	text-decoration: none;
+	display: block;
+}
+
+.dropdown-content a:hover {
+	background-color: #f1f1f1;
+	color: lightskyblue;
+}
+/* 
+.dropdown-content a:first-child {
+	background-color: #fff;
+}
+
+.dropdown-content a:first-child:hover {
+	background-color: #fff;
+	cursor: default;
+} */
