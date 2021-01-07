@@ -1,22 +1,57 @@
 <template>
     <section class="body">
-        <div class="post" id="post1">
-            <a href="#">第一篇博文</a>
+        <div class="post" id="post1" v-for="(post,index) in posts" :key="index" v-bind:style="picStyle(post.ppic)">
+            <router-link to="/blog/post">{{post.ptitle}}</router-link>
         </div>
-        <div class="post" id="post2">
-            <router-link to="/blog/post">第二篇博文</router-link>
-        </div>
-        <div class="post" id="post3"><a href="#">第三篇博文</a></div>
-        <div class="post" id="post4"><a href="#">第四篇博文</a></div>
-        <div class="post" id="post5"><a href="#">第五篇博文</a></div>
-        <div class="post" id="post6"><a href="#">第六篇博文</a></div>
-        <div class="post" id="post7"><a href="#">第七篇博文</a></div>
     </section>
 </template>
 
 <script>
 export default {
-
+    data() {
+        return {
+            posts: [
+                {
+                    ptitle: '第一篇博文',
+                    ppic: 'dis-1.jpg'
+                },
+                {
+                    ptitle: '第一篇博文',
+                    ppic: 'dis-1.jpg'
+                },
+                {
+                    ptitle: '第一篇博文',
+                    ppic: 'dis-1.jpg'
+                },
+                {
+                    ptitle: '第一篇博文',
+                    ppic: 'dis-1.jpg'
+                },
+                {
+                    ptitle: '第一篇博文',
+                    ppic: 'dis-1.jpg'
+                },
+                {
+                    ptitle: '第一篇博文',
+                    ppic: 'dis-1.jpg'
+                },
+                {
+                    ptitle: '第一篇博文',
+                    ppic: 'dis-1.jpg'
+                }
+            ]
+        }
+    },
+    methods: {
+        picStyle: function (img) {
+            let imgURL = 'http://blog.megrax.space:1779/' + img;
+            return {
+                background: "url('" + imgURL + "') rgba(0, 0, 0, 0.3) no-repeat center",
+                backgroundBlendMode: "multiply",
+                backgroundSize: "100%"
+            }
+        }
+    }
 }
 </script>
 
@@ -43,7 +78,7 @@ export default {
 }
 
 .body .post:hover {
-    background-size: 120%;
+    background-size: 120% !important;
 }
 
 .body .post a {
@@ -62,19 +97,11 @@ export default {
     background-size: 100%;
 }
 
-.body #post1:hover {
-    background-size: 120%;
-}
-
 .body #post2 {
     background: url(../../assets/img/dis-2.jpg) rgba(0, 0, 0, 0.3) no-repeat
         center;
     background-blend-mode: multiply;
     background-size: 100%;
-}
-
-.body #post2:hover {
-    background-size: 120%;
 }
 
 .body #post3 {
@@ -84,10 +111,6 @@ export default {
     background-size: 100%;
 }
 
-.body #post3:hover {
-    background-size: 120%;
-}
-
 .body #post4 {
     background: url(../../assets/img/dis-4.jpg) rgba(0, 0, 0, 0.3) no-repeat
         center;
@@ -95,18 +118,11 @@ export default {
     background-size: 100%;
 }
 
-.body #post4:hover {
-    background-size: 120%;
-}
 .body #post5 {
     background: url(../../assets/img/dis-5.jpg) rgba(0, 0, 0, 0.3) no-repeat
         center;
     background-blend-mode: multiply;
     background-size: 100%;
-}
-
-.body #post5:hover {
-    background-size: 120%;
 }
 
 .body #post6 {
@@ -116,18 +132,10 @@ export default {
     background-size: 100%;
 }
 
-.body #post6:hover {
-    background-size: 120%;
-}
-
 .body #post7 {
     background: url(../../assets/img/dis-7.jpg) rgba(0, 0, 0, 0.3) no-repeat
         center;
     background-blend-mode: multiply;
     background-size: 100%;
-}
-
-.body #post7:hover {
-    background-size: 120%;
 }
 </style>

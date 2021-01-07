@@ -17,115 +17,17 @@
                 <div class="discovery">
                     <h2 class="icon-leaf">Discovery</h2>
                     <div class="content">
-                        <div class="discovery-post">
-                            <div class="pic" id="dis-post-pic-first"></div>
-                            <div class="des" id="dis-post-des-first">
-                                <div class="time icon-calendar">2020.10.9</div>
+                        <div class="discovery-post" v-for="(post,index) in posts" :key="index">
+                            <div class="pic" v-bind:style="picStyle(post.ppic)"> </div>
+                            <div class="des">
+                                <div class="time icon-calendar">{{ post.pcreated_at }}</div>
                                 <div class="title">
                                     <router-link to="/blog/post">
-                                        <h2>第一篇博文</h2>
+                                        <h2>{{ post.ptitle }}</h2>
                                     </router-link>
                                 </div>
                                 <div class="tag-area">
-                                    <div class="tag">#Blog</div>
-                                    <div class="tag">#Blog</div>
-                                    <div class="tag">#Blog</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="discovery-post">
-                            <div class="pic" id="dis-post-pic-second"></div>
-                            <div class="des" id="dis-post-des-second">
-                                <div class="time icon-calendar">2020.10.9</div>
-                                <div class="title">
-                                    <a href="#">
-                                        <h2>第二篇博文</h2>
-                                    </a>
-                                </div>
-                                <div class="tag-area">
-                                    <div class="tag">#Blog</div>
-                                    <div class="tag">#Blog</div>
-                                    <div class="tag">#Blog</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="discovery-post">
-                            <div class="pic" id="dis-post-pic-third"></div>
-                            <div class="des" id="dis-post-des-third">
-                                <div class="time icon-calendar">2020.10.9</div>
-                                <div class="title">
-                                    <a href="#">
-                                        <h2>第三篇博文</h2>
-                                    </a>
-                                </div>
-                                <div class="tag-area">
-                                    <div class="tag">#Blog</div>
-                                    <div class="tag">#Blog</div>
-                                    <div class="tag">#Blog</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="discovery-post">
-                            <div class="pic" id="dis-post-pic-fourth"></div>
-                            <div class="des" id="dis-post-des-fourth">
-                                <div class="time icon-calendar">2020.10.9</div>
-                                <div class="title">
-                                    <a href="#">
-                                        <h2>第四篇博文</h2>
-                                    </a>
-                                </div>
-                                <div class="tag-area">
-                                    <div class="tag">#Blog</div>
-                                    <div class="tag">#Blog</div>
-                                    <div class="tag">#Blog</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="discovery-post">
-                            <div class="pic" id="dis-post-pic-fifth"></div>
-                            <div class="des" id="dis-post-des-fifth">
-                                <div class="time icon-calendar">2020.10.9</div>
-                                <div class="title">
-                                    <a href="#">
-                                        <h2>第五篇博文</h2>
-                                    </a>
-                                </div>
-                                <div class="tag-area">
-                                    <div class="tag">#Blog</div>
-                                    <div class="tag">#Blog</div>
-                                    <div class="tag">#Blog</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="discovery-post">
-                            <div class="pic" id="dis-post-pic-sixth"></div>
-                            <div class="des" id="dis-post-des-sixth">
-                                <div class="time icon-calendar">2020.10.9</div>
-                                <div class="title">
-                                    <a href="#">
-                                        <h2>第六篇博文</h2>
-                                    </a>
-                                </div>
-                                <div class="tag-area">
-                                    <div class="tag">#Blog</div>
-                                    <div class="tag">#Blog</div>
-                                    <div class="tag">#Blog</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="discovery-post">
-                            <div class="pic" id="dis-post-pic-seventh"></div>
-                            <div class="des" id="dis-post-des-seventh">
-                                <div class="time icon-calendar">2020.10.9</div>
-                                <div class="title">
-                                    <a href="#">
-                                        <h2>第七篇博文</h2>
-                                    </a>
-                                </div>
-                                <div class="tag-area">
-                                    <div class="tag">#Blog</div>
-                                    <div class="tag">#Blog</div>
-                                    <div class="tag">#Blog</div>
+                                    <div class="tag" v-for="(tag,index) in post.ttitle" :key="index">{{ tag }}</div>
                                 </div>
                             </div>
                         </div>
@@ -137,8 +39,983 @@
 </template>
 
 <script>
-export default {
+import '../../assets/img/*.jpg';
 
+export default {
+    data() {
+        return {
+            posts: [
+                {
+                    ptitle: '第一篇博文',
+                    pcontent: `<div class="bodywrapper">
+                <div class="example-title">
+                    <h1>文字排版</h1>
+                </div>
+                <h1>h1.Simple default styles for headings</h1>
+                <h2 class="h2">h2.Simple default styles for headings</h2>
+                <h3>h3.Simple default styles for headings</h3>
+                <h4>h4.Simple default styles for headings</h4>
+                <h5>h5.Simple default styles for headings</h5>
+                <h6>h6.Simple default styles for headings</h6>
+                <hr />
+                <h2>2.提示框</h2>
+                <div class="alert_box" id="first">
+                    A simple primary alert - check it out!
+                </div>
+                <div class="alert_box" id="second">
+                    A simple secondary alert - check it out!
+                </div>
+                <div class="alert_box" id="third">
+                    A simple success alert - check it out!
+                </div>
+                <div class="alert_box" id="forth">
+                    A simple danger alert - check it out!
+                </div>
+                <div class="alert_box" id="fifth">
+                    A simple warning alert - check it out!
+                </div>
+                <div class="alert_box" id="sixth">
+                    A simple info alert - check it out!
+                </div>
+                <div class="alert_box" id="seventh">
+                    A simple dark alert - check it out!
+                </div>
+                <h2>3.按钮样式</h2>
+                <div class="upper">
+                    <button class="primary">Primary</button>
+                    <button class="secondary">Secondary</button>
+                    <button class="success">Success</button>
+                    <button class="danger">Danger</button>
+                    <button class="warning">Warning</button>
+                    <button class="info">Info</button>
+                    <button class="light">Light</button>
+                    <button class="dark">Dark</button>
+                </div>
+                <br />
+                <button class="primary">Primary</button>
+                <button class="secondary">Secondary</button>
+                <button class="success">Success</button>
+                <button class="danger">Danger</button>
+                <button class="warning">Warning</button>
+                <button class="info">Info</button>
+                <button class="light">Light</button>
+                <button class="dark">Dark</button>
+                <h2>4.文字</h2>
+                <p>
+                    I use a lot of tools to help me create WordPress, Ghost
+                    and Jekyll themes. Tools will range from development,
+                    design, services, hosting and automation.
+                </p>
+                <ul>
+                    <li>
+                        Ut at interdum nunc. Maecenas commodo turpis quis
+                        elementum gravida.
+                    </li>
+                    <li>
+                        Nunc ac sapien tellus. Quisque risus enim, tempus
+                        eget porttitor.
+                    </li>
+                    <li>
+                        Donec nibh massa, rutrum a sollicitudin eu, lacinia
+                        in lorem.
+                    </li>
+                </ul>
+                <p>
+                    Graphic design is the paradise of individuality,
+                    eccentricity, heresy,
+                </p>
+                <ol>
+                    <li>
+                        Ut at interdum nunc. Maecenas commodo turpis quis
+                        elementum gravida.
+                    </li>
+                    <li>
+                        Nunc ac sapien tellus. Quisque risus enim, tempus
+                        eget porttitor.
+                    </li>
+                    <li>
+                        Donec nibh massa, rutrum a sollicitudin eu, lacinia
+                        in lorem.
+                    </li>
+                </ol>
+                <p>
+                    I use a lot of tools to help me create WordPress, Ghost
+                    and Jekyll themes. Tools will range from development,
+                    design, services, hosting and automation.
+                </p>
+                <p>
+                    Graphic design is the paradise of individuality,
+                    eccentricity, heresy, abnormality, hobbies, and humors.
+                    — George Santayana.
+                </p>
+                <hr />
+                <p>
+                    Graphic design is the paradise of individuality,
+                    eccentricity, heresy, abnormality, hobbies, and humors.
+                    — George Santayana. I use a lot of tools to help me
+                    create WordPress, Ghost and Jekyll themes. Tools will
+                    range from development, design, services, hosting and
+                    automation.
+                </p>
+                <h2>5.其它</h2>
+                <p>
+                    You can use the mark tag to <mark>highlight</mark> text.
+                </p>
+                <p>
+                    <del>This line of text is meant to be treated as deleted
+                        text.</del>
+                </p>
+                <p><u>This line fo text will render as underlined.</u></p>
+                <p>
+                    <small>This line of text is meant to be treated as fine
+                        print.</small>
+                </p>
+                <p><b>This line rendered as bold text.</b></p>
+                <p><i>This line rendered as italicized text.</i></p>
+            </div>`,
+                    ppic: 'dis-1.jpg',
+                    pcreated_at: '2020-09-21 10:10:00',
+                    ttitle: [
+                        'blog',
+                        'blog',
+                        'blog'
+                    ],
+                    style: {}
+                },
+                {
+                    ptitle: '第一篇博文',
+                    pcontent: `<div class="bodywrapper">
+                <div class="example-title">
+                    <h1>文字排版</h1>
+                </div>
+                <h1>h1.Simple default styles for headings</h1>
+                <h2 class="h2">h2.Simple default styles for headings</h2>
+                <h3>h3.Simple default styles for headings</h3>
+                <h4>h4.Simple default styles for headings</h4>
+                <h5>h5.Simple default styles for headings</h5>
+                <h6>h6.Simple default styles for headings</h6>
+                <hr />
+                <h2>2.提示框</h2>
+                <div class="alert_box" id="first">
+                    A simple primary alert - check it out!
+                </div>
+                <div class="alert_box" id="second">
+                    A simple secondary alert - check it out!
+                </div>
+                <div class="alert_box" id="third">
+                    A simple success alert - check it out!
+                </div>
+                <div class="alert_box" id="forth">
+                    A simple danger alert - check it out!
+                </div>
+                <div class="alert_box" id="fifth">
+                    A simple warning alert - check it out!
+                </div>
+                <div class="alert_box" id="sixth">
+                    A simple info alert - check it out!
+                </div>
+                <div class="alert_box" id="seventh">
+                    A simple dark alert - check it out!
+                </div>
+                <h2>3.按钮样式</h2>
+                <div class="upper">
+                    <button class="primary">Primary</button>
+                    <button class="secondary">Secondary</button>
+                    <button class="success">Success</button>
+                    <button class="danger">Danger</button>
+                    <button class="warning">Warning</button>
+                    <button class="info">Info</button>
+                    <button class="light">Light</button>
+                    <button class="dark">Dark</button>
+                </div>
+                <br />
+                <button class="primary">Primary</button>
+                <button class="secondary">Secondary</button>
+                <button class="success">Success</button>
+                <button class="danger">Danger</button>
+                <button class="warning">Warning</button>
+                <button class="info">Info</button>
+                <button class="light">Light</button>
+                <button class="dark">Dark</button>
+                <h2>4.文字</h2>
+                <p>
+                    I use a lot of tools to help me create WordPress, Ghost
+                    and Jekyll themes. Tools will range from development,
+                    design, services, hosting and automation.
+                </p>
+                <ul>
+                    <li>
+                        Ut at interdum nunc. Maecenas commodo turpis quis
+                        elementum gravida.
+                    </li>
+                    <li>
+                        Nunc ac sapien tellus. Quisque risus enim, tempus
+                        eget porttitor.
+                    </li>
+                    <li>
+                        Donec nibh massa, rutrum a sollicitudin eu, lacinia
+                        in lorem.
+                    </li>
+                </ul>
+                <p>
+                    Graphic design is the paradise of individuality,
+                    eccentricity, heresy,
+                </p>
+                <ol>
+                    <li>
+                        Ut at interdum nunc. Maecenas commodo turpis quis
+                        elementum gravida.
+                    </li>
+                    <li>
+                        Nunc ac sapien tellus. Quisque risus enim, tempus
+                        eget porttitor.
+                    </li>
+                    <li>
+                        Donec nibh massa, rutrum a sollicitudin eu, lacinia
+                        in lorem.
+                    </li>
+                </ol>
+                <p>
+                    I use a lot of tools to help me create WordPress, Ghost
+                    and Jekyll themes. Tools will range from development,
+                    design, services, hosting and automation.
+                </p>
+                <p>
+                    Graphic design is the paradise of individuality,
+                    eccentricity, heresy, abnormality, hobbies, and humors.
+                    — George Santayana.
+                </p>
+                <hr />
+                <p>
+                    Graphic design is the paradise of individuality,
+                    eccentricity, heresy, abnormality, hobbies, and humors.
+                    — George Santayana. I use a lot of tools to help me
+                    create WordPress, Ghost and Jekyll themes. Tools will
+                    range from development, design, services, hosting and
+                    automation.
+                </p>
+                <h2>5.其它</h2>
+                <p>
+                    You can use the mark tag to <mark>highlight</mark> text.
+                </p>
+                <p>
+                    <del>This line of text is meant to be treated as deleted
+                        text.</del>
+                </p>
+                <p><u>This line fo text will render as underlined.</u></p>
+                <p>
+                    <small>This line of text is meant to be treated as fine
+                        print.</small>
+                </p>
+                <p><b>This line rendered as bold text.</b></p>
+                <p><i>This line rendered as italicized text.</i></p>
+            </div>`,
+                    ppic: 'dis-2.jpg',
+                    pcreated_at: '2020-09-21 10:10:00',
+                    ttitle: [
+                        'blog',
+                        'blog',
+                        'blog'
+                    ],
+                    style: {}
+                },
+                {
+                    ptitle: '第一篇博文',
+                    pcontent: `<div class="bodywrapper">
+                <div class="example-title">
+                    <h1>文字排版</h1>
+                </div>
+                <h1>h1.Simple default styles for headings</h1>
+                <h2 class="h2">h2.Simple default styles for headings</h2>
+                <h3>h3.Simple default styles for headings</h3>
+                <h4>h4.Simple default styles for headings</h4>
+                <h5>h5.Simple default styles for headings</h5>
+                <h6>h6.Simple default styles for headings</h6>
+                <hr />
+                <h2>2.提示框</h2>
+                <div class="alert_box" id="first">
+                    A simple primary alert - check it out!
+                </div>
+                <div class="alert_box" id="second">
+                    A simple secondary alert - check it out!
+                </div>
+                <div class="alert_box" id="third">
+                    A simple success alert - check it out!
+                </div>
+                <div class="alert_box" id="forth">
+                    A simple danger alert - check it out!
+                </div>
+                <div class="alert_box" id="fifth">
+                    A simple warning alert - check it out!
+                </div>
+                <div class="alert_box" id="sixth">
+                    A simple info alert - check it out!
+                </div>
+                <div class="alert_box" id="seventh">
+                    A simple dark alert - check it out!
+                </div>
+                <h2>3.按钮样式</h2>
+                <div class="upper">
+                    <button class="primary">Primary</button>
+                    <button class="secondary">Secondary</button>
+                    <button class="success">Success</button>
+                    <button class="danger">Danger</button>
+                    <button class="warning">Warning</button>
+                    <button class="info">Info</button>
+                    <button class="light">Light</button>
+                    <button class="dark">Dark</button>
+                </div>
+                <br />
+                <button class="primary">Primary</button>
+                <button class="secondary">Secondary</button>
+                <button class="success">Success</button>
+                <button class="danger">Danger</button>
+                <button class="warning">Warning</button>
+                <button class="info">Info</button>
+                <button class="light">Light</button>
+                <button class="dark">Dark</button>
+                <h2>4.文字</h2>
+                <p>
+                    I use a lot of tools to help me create WordPress, Ghost
+                    and Jekyll themes. Tools will range from development,
+                    design, services, hosting and automation.
+                </p>
+                <ul>
+                    <li>
+                        Ut at interdum nunc. Maecenas commodo turpis quis
+                        elementum gravida.
+                    </li>
+                    <li>
+                        Nunc ac sapien tellus. Quisque risus enim, tempus
+                        eget porttitor.
+                    </li>
+                    <li>
+                        Donec nibh massa, rutrum a sollicitudin eu, lacinia
+                        in lorem.
+                    </li>
+                </ul>
+                <p>
+                    Graphic design is the paradise of individuality,
+                    eccentricity, heresy,
+                </p>
+                <ol>
+                    <li>
+                        Ut at interdum nunc. Maecenas commodo turpis quis
+                        elementum gravida.
+                    </li>
+                    <li>
+                        Nunc ac sapien tellus. Quisque risus enim, tempus
+                        eget porttitor.
+                    </li>
+                    <li>
+                        Donec nibh massa, rutrum a sollicitudin eu, lacinia
+                        in lorem.
+                    </li>
+                </ol>
+                <p>
+                    I use a lot of tools to help me create WordPress, Ghost
+                    and Jekyll themes. Tools will range from development,
+                    design, services, hosting and automation.
+                </p>
+                <p>
+                    Graphic design is the paradise of individuality,
+                    eccentricity, heresy, abnormality, hobbies, and humors.
+                    — George Santayana.
+                </p>
+                <hr />
+                <p>
+                    Graphic design is the paradise of individuality,
+                    eccentricity, heresy, abnormality, hobbies, and humors.
+                    — George Santayana. I use a lot of tools to help me
+                    create WordPress, Ghost and Jekyll themes. Tools will
+                    range from development, design, services, hosting and
+                    automation.
+                </p>
+                <h2>5.其它</h2>
+                <p>
+                    You can use the mark tag to <mark>highlight</mark> text.
+                </p>
+                <p>
+                    <del>This line of text is meant to be treated as deleted
+                        text.</del>
+                </p>
+                <p><u>This line fo text will render as underlined.</u></p>
+                <p>
+                    <small>This line of text is meant to be treated as fine
+                        print.</small>
+                </p>
+                <p><b>This line rendered as bold text.</b></p>
+                <p><i>This line rendered as italicized text.</i></p>
+            </div>`,
+                    ppic: 'dis-3.jpg',
+                    pcreated_at: '2020-09-21 10:10:00',
+                    ttitle: [
+                        'blog',
+                        'blog',
+                        'blog'
+                    ],
+                    style: {}
+                },
+                {
+                    ptitle: '第一篇博文',
+                    pcontent: `<div class="bodywrapper">
+                <div class="example-title">
+                    <h1>文字排版</h1>
+                </div>
+                <h1>h1.Simple default styles for headings</h1>
+                <h2 class="h2">h2.Simple default styles for headings</h2>
+                <h3>h3.Simple default styles for headings</h3>
+                <h4>h4.Simple default styles for headings</h4>
+                <h5>h5.Simple default styles for headings</h5>
+                <h6>h6.Simple default styles for headings</h6>
+                <hr />
+                <h2>2.提示框</h2>
+                <div class="alert_box" id="first">
+                    A simple primary alert - check it out!
+                </div>
+                <div class="alert_box" id="second">
+                    A simple secondary alert - check it out!
+                </div>
+                <div class="alert_box" id="third">
+                    A simple success alert - check it out!
+                </div>
+                <div class="alert_box" id="forth">
+                    A simple danger alert - check it out!
+                </div>
+                <div class="alert_box" id="fifth">
+                    A simple warning alert - check it out!
+                </div>
+                <div class="alert_box" id="sixth">
+                    A simple info alert - check it out!
+                </div>
+                <div class="alert_box" id="seventh">
+                    A simple dark alert - check it out!
+                </div>
+                <h2>3.按钮样式</h2>
+                <div class="upper">
+                    <button class="primary">Primary</button>
+                    <button class="secondary">Secondary</button>
+                    <button class="success">Success</button>
+                    <button class="danger">Danger</button>
+                    <button class="warning">Warning</button>
+                    <button class="info">Info</button>
+                    <button class="light">Light</button>
+                    <button class="dark">Dark</button>
+                </div>
+                <br />
+                <button class="primary">Primary</button>
+                <button class="secondary">Secondary</button>
+                <button class="success">Success</button>
+                <button class="danger">Danger</button>
+                <button class="warning">Warning</button>
+                <button class="info">Info</button>
+                <button class="light">Light</button>
+                <button class="dark">Dark</button>
+                <h2>4.文字</h2>
+                <p>
+                    I use a lot of tools to help me create WordPress, Ghost
+                    and Jekyll themes. Tools will range from development,
+                    design, services, hosting and automation.
+                </p>
+                <ul>
+                    <li>
+                        Ut at interdum nunc. Maecenas commodo turpis quis
+                        elementum gravida.
+                    </li>
+                    <li>
+                        Nunc ac sapien tellus. Quisque risus enim, tempus
+                        eget porttitor.
+                    </li>
+                    <li>
+                        Donec nibh massa, rutrum a sollicitudin eu, lacinia
+                        in lorem.
+                    </li>
+                </ul>
+                <p>
+                    Graphic design is the paradise of individuality,
+                    eccentricity, heresy,
+                </p>
+                <ol>
+                    <li>
+                        Ut at interdum nunc. Maecenas commodo turpis quis
+                        elementum gravida.
+                    </li>
+                    <li>
+                        Nunc ac sapien tellus. Quisque risus enim, tempus
+                        eget porttitor.
+                    </li>
+                    <li>
+                        Donec nibh massa, rutrum a sollicitudin eu, lacinia
+                        in lorem.
+                    </li>
+                </ol>
+                <p>
+                    I use a lot of tools to help me create WordPress, Ghost
+                    and Jekyll themes. Tools will range from development,
+                    design, services, hosting and automation.
+                </p>
+                <p>
+                    Graphic design is the paradise of individuality,
+                    eccentricity, heresy, abnormality, hobbies, and humors.
+                    — George Santayana.
+                </p>
+                <hr />
+                <p>
+                    Graphic design is the paradise of individuality,
+                    eccentricity, heresy, abnormality, hobbies, and humors.
+                    — George Santayana. I use a lot of tools to help me
+                    create WordPress, Ghost and Jekyll themes. Tools will
+                    range from development, design, services, hosting and
+                    automation.
+                </p>
+                <h2>5.其它</h2>
+                <p>
+                    You can use the mark tag to <mark>highlight</mark> text.
+                </p>
+                <p>
+                    <del>This line of text is meant to be treated as deleted
+                        text.</del>
+                </p>
+                <p><u>This line fo text will render as underlined.</u></p>
+                <p>
+                    <small>This line of text is meant to be treated as fine
+                        print.</small>
+                </p>
+                <p><b>This line rendered as bold text.</b></p>
+                <p><i>This line rendered as italicized text.</i></p>
+            </div>`,
+                    ppic: 'dis-4.jpg',
+                    pcreated_at: '2020-09-21 10:10:00',
+                    ttitle: [
+                        'blog',
+                        'blog',
+                        'blog'
+                    ],
+                    style: {}
+                },
+                {
+                    ptitle: '第一篇博文',
+                    pcontent: `<div class="bodywrapper">
+                <div class="example-title">
+                    <h1>文字排版</h1>
+                </div>
+                <h1>h1.Simple default styles for headings</h1>
+                <h2 class="h2">h2.Simple default styles for headings</h2>
+                <h3>h3.Simple default styles for headings</h3>
+                <h4>h4.Simple default styles for headings</h4>
+                <h5>h5.Simple default styles for headings</h5>
+                <h6>h6.Simple default styles for headings</h6>
+                <hr />
+                <h2>2.提示框</h2>
+                <div class="alert_box" id="first">
+                    A simple primary alert - check it out!
+                </div>
+                <div class="alert_box" id="second">
+                    A simple secondary alert - check it out!
+                </div>
+                <div class="alert_box" id="third">
+                    A simple success alert - check it out!
+                </div>
+                <div class="alert_box" id="forth">
+                    A simple danger alert - check it out!
+                </div>
+                <div class="alert_box" id="fifth">
+                    A simple warning alert - check it out!
+                </div>
+                <div class="alert_box" id="sixth">
+                    A simple info alert - check it out!
+                </div>
+                <div class="alert_box" id="seventh">
+                    A simple dark alert - check it out!
+                </div>
+                <h2>3.按钮样式</h2>
+                <div class="upper">
+                    <button class="primary">Primary</button>
+                    <button class="secondary">Secondary</button>
+                    <button class="success">Success</button>
+                    <button class="danger">Danger</button>
+                    <button class="warning">Warning</button>
+                    <button class="info">Info</button>
+                    <button class="light">Light</button>
+                    <button class="dark">Dark</button>
+                </div>
+                <br />
+                <button class="primary">Primary</button>
+                <button class="secondary">Secondary</button>
+                <button class="success">Success</button>
+                <button class="danger">Danger</button>
+                <button class="warning">Warning</button>
+                <button class="info">Info</button>
+                <button class="light">Light</button>
+                <button class="dark">Dark</button>
+                <h2>4.文字</h2>
+                <p>
+                    I use a lot of tools to help me create WordPress, Ghost
+                    and Jekyll themes. Tools will range from development,
+                    design, services, hosting and automation.
+                </p>
+                <ul>
+                    <li>
+                        Ut at interdum nunc. Maecenas commodo turpis quis
+                        elementum gravida.
+                    </li>
+                    <li>
+                        Nunc ac sapien tellus. Quisque risus enim, tempus
+                        eget porttitor.
+                    </li>
+                    <li>
+                        Donec nibh massa, rutrum a sollicitudin eu, lacinia
+                        in lorem.
+                    </li>
+                </ul>
+                <p>
+                    Graphic design is the paradise of individuality,
+                    eccentricity, heresy,
+                </p>
+                <ol>
+                    <li>
+                        Ut at interdum nunc. Maecenas commodo turpis quis
+                        elementum gravida.
+                    </li>
+                    <li>
+                        Nunc ac sapien tellus. Quisque risus enim, tempus
+                        eget porttitor.
+                    </li>
+                    <li>
+                        Donec nibh massa, rutrum a sollicitudin eu, lacinia
+                        in lorem.
+                    </li>
+                </ol>
+                <p>
+                    I use a lot of tools to help me create WordPress, Ghost
+                    and Jekyll themes. Tools will range from development,
+                    design, services, hosting and automation.
+                </p>
+                <p>
+                    Graphic design is the paradise of individuality,
+                    eccentricity, heresy, abnormality, hobbies, and humors.
+                    — George Santayana.
+                </p>
+                <hr />
+                <p>
+                    Graphic design is the paradise of individuality,
+                    eccentricity, heresy, abnormality, hobbies, and humors.
+                    — George Santayana. I use a lot of tools to help me
+                    create WordPress, Ghost and Jekyll themes. Tools will
+                    range from development, design, services, hosting and
+                    automation.
+                </p>
+                <h2>5.其它</h2>
+                <p>
+                    You can use the mark tag to <mark>highlight</mark> text.
+                </p>
+                <p>
+                    <del>This line of text is meant to be treated as deleted
+                        text.</del>
+                </p>
+                <p><u>This line fo text will render as underlined.</u></p>
+                <p>
+                    <small>This line of text is meant to be treated as fine
+                        print.</small>
+                </p>
+                <p><b>This line rendered as bold text.</b></p>
+                <p><i>This line rendered as italicized text.</i></p>
+            </div>`,
+                    ppic: 'dis-5.jpg',
+                    pcreated_at: '2020-09-21 10:10:00',
+                    ttitle: [
+                        'blog',
+                        'blog',
+                        'blog'
+                    ],
+                    style: {}
+                },
+                {
+                    ptitle: '第一篇博文',
+                    pcontent: `<div class="bodywrapper">
+                <div class="example-title">
+                    <h1>文字排版</h1>
+                </div>
+                <h1>h1.Simple default styles for headings</h1>
+                <h2 class="h2">h2.Simple default styles for headings</h2>
+                <h3>h3.Simple default styles for headings</h3>
+                <h4>h4.Simple default styles for headings</h4>
+                <h5>h5.Simple default styles for headings</h5>
+                <h6>h6.Simple default styles for headings</h6>
+                <hr />
+                <h2>2.提示框</h2>
+                <div class="alert_box" id="first">
+                    A simple primary alert - check it out!
+                </div>
+                <div class="alert_box" id="second">
+                    A simple secondary alert - check it out!
+                </div>
+                <div class="alert_box" id="third">
+                    A simple success alert - check it out!
+                </div>
+                <div class="alert_box" id="forth">
+                    A simple danger alert - check it out!
+                </div>
+                <div class="alert_box" id="fifth">
+                    A simple warning alert - check it out!
+                </div>
+                <div class="alert_box" id="sixth">
+                    A simple info alert - check it out!
+                </div>
+                <div class="alert_box" id="seventh">
+                    A simple dark alert - check it out!
+                </div>
+                <h2>3.按钮样式</h2>
+                <div class="upper">
+                    <button class="primary">Primary</button>
+                    <button class="secondary">Secondary</button>
+                    <button class="success">Success</button>
+                    <button class="danger">Danger</button>
+                    <button class="warning">Warning</button>
+                    <button class="info">Info</button>
+                    <button class="light">Light</button>
+                    <button class="dark">Dark</button>
+                </div>
+                <br />
+                <button class="primary">Primary</button>
+                <button class="secondary">Secondary</button>
+                <button class="success">Success</button>
+                <button class="danger">Danger</button>
+                <button class="warning">Warning</button>
+                <button class="info">Info</button>
+                <button class="light">Light</button>
+                <button class="dark">Dark</button>
+                <h2>4.文字</h2>
+                <p>
+                    I use a lot of tools to help me create WordPress, Ghost
+                    and Jekyll themes. Tools will range from development,
+                    design, services, hosting and automation.
+                </p>
+                <ul>
+                    <li>
+                        Ut at interdum nunc. Maecenas commodo turpis quis
+                        elementum gravida.
+                    </li>
+                    <li>
+                        Nunc ac sapien tellus. Quisque risus enim, tempus
+                        eget porttitor.
+                    </li>
+                    <li>
+                        Donec nibh massa, rutrum a sollicitudin eu, lacinia
+                        in lorem.
+                    </li>
+                </ul>
+                <p>
+                    Graphic design is the paradise of individuality,
+                    eccentricity, heresy,
+                </p>
+                <ol>
+                    <li>
+                        Ut at interdum nunc. Maecenas commodo turpis quis
+                        elementum gravida.
+                    </li>
+                    <li>
+                        Nunc ac sapien tellus. Quisque risus enim, tempus
+                        eget porttitor.
+                    </li>
+                    <li>
+                        Donec nibh massa, rutrum a sollicitudin eu, lacinia
+                        in lorem.
+                    </li>
+                </ol>
+                <p>
+                    I use a lot of tools to help me create WordPress, Ghost
+                    and Jekyll themes. Tools will range from development,
+                    design, services, hosting and automation.
+                </p>
+                <p>
+                    Graphic design is the paradise of individuality,
+                    eccentricity, heresy, abnormality, hobbies, and humors.
+                    — George Santayana.
+                </p>
+                <hr />
+                <p>
+                    Graphic design is the paradise of individuality,
+                    eccentricity, heresy, abnormality, hobbies, and humors.
+                    — George Santayana. I use a lot of tools to help me
+                    create WordPress, Ghost and Jekyll themes. Tools will
+                    range from development, design, services, hosting and
+                    automation.
+                </p>
+                <h2>5.其它</h2>
+                <p>
+                    You can use the mark tag to <mark>highlight</mark> text.
+                </p>
+                <p>
+                    <del>This line of text is meant to be treated as deleted
+                        text.</del>
+                </p>
+                <p><u>This line fo text will render as underlined.</u></p>
+                <p>
+                    <small>This line of text is meant to be treated as fine
+                        print.</small>
+                </p>
+                <p><b>This line rendered as bold text.</b></p>
+                <p><i>This line rendered as italicized text.</i></p>
+            </div>`,
+                    ppic: 'dis-6.jpg',
+                    pcreated_at: '2020-09-21 10:10:00',
+                    ttitle: [
+                        'blog',
+                        'blog',
+                        'blog'
+                    ],
+                    style: {}
+                },
+                {
+                    ptitle: '第一篇博文',
+                    pcontent: `<div class="bodywrapper">
+                <div class="example-title">
+                    <h1>文字排版</h1>
+                </div>
+                <h1>h1.Simple default styles for headings</h1>
+                <h2 class="h2">h2.Simple default styles for headings</h2>
+                <h3>h3.Simple default styles for headings</h3>
+                <h4>h4.Simple default styles for headings</h4>
+                <h5>h5.Simple default styles for headings</h5>
+                <h6>h6.Simple default styles for headings</h6>
+                <hr />
+                <h2>2.提示框</h2>
+                <div class="alert_box" id="first">
+                    A simple primary alert - check it out!
+                </div>
+                <div class="alert_box" id="second">
+                    A simple secondary alert - check it out!
+                </div>
+                <div class="alert_box" id="third">
+                    A simple success alert - check it out!
+                </div>
+                <div class="alert_box" id="forth">
+                    A simple danger alert - check it out!
+                </div>
+                <div class="alert_box" id="fifth">
+                    A simple warning alert - check it out!
+                </div>
+                <div class="alert_box" id="sixth">
+                    A simple info alert - check it out!
+                </div>
+                <div class="alert_box" id="seventh">
+                    A simple dark alert - check it out!
+                </div>
+                <h2>3.按钮样式</h2>
+                <div class="upper">
+                    <button class="primary">Primary</button>
+                    <button class="secondary">Secondary</button>
+                    <button class="success">Success</button>
+                    <button class="danger">Danger</button>
+                    <button class="warning">Warning</button>
+                    <button class="info">Info</button>
+                    <button class="light">Light</button>
+                    <button class="dark">Dark</button>
+                </div>
+                <br />
+                <button class="primary">Primary</button>
+                <button class="secondary">Secondary</button>
+                <button class="success">Success</button>
+                <button class="danger">Danger</button>
+                <button class="warning">Warning</button>
+                <button class="info">Info</button>
+                <button class="light">Light</button>
+                <button class="dark">Dark</button>
+                <h2>4.文字</h2>
+                <p>
+                    I use a lot of tools to help me create WordPress, Ghost
+                    and Jekyll themes. Tools will range from development,
+                    design, services, hosting and automation.
+                </p>
+                <ul>
+                    <li>
+                        Ut at interdum nunc. Maecenas commodo turpis quis
+                        elementum gravida.
+                    </li>
+                    <li>
+                        Nunc ac sapien tellus. Quisque risus enim, tempus
+                        eget porttitor.
+                    </li>
+                    <li>
+                        Donec nibh massa, rutrum a sollicitudin eu, lacinia
+                        in lorem.
+                    </li>
+                </ul>
+                <p>
+                    Graphic design is the paradise of individuality,
+                    eccentricity, heresy,
+                </p>
+                <ol>
+                    <li>
+                        Ut at interdum nunc. Maecenas commodo turpis quis
+                        elementum gravida.
+                    </li>
+                    <li>
+                        Nunc ac sapien tellus. Quisque risus enim, tempus
+                        eget porttitor.
+                    </li>
+                    <li>
+                        Donec nibh massa, rutrum a sollicitudin eu, lacinia
+                        in lorem.
+                    </li>
+                </ol>
+                <p>
+                    I use a lot of tools to help me create WordPress, Ghost
+                    and Jekyll themes. Tools will range from development,
+                    design, services, hosting and automation.
+                </p>
+                <p>
+                    Graphic design is the paradise of individuality,
+                    eccentricity, heresy, abnormality, hobbies, and humors.
+                    — George Santayana.
+                </p>
+                <hr />
+                <p>
+                    Graphic design is the paradise of individuality,
+                    eccentricity, heresy, abnormality, hobbies, and humors.
+                    — George Santayana. I use a lot of tools to help me
+                    create WordPress, Ghost and Jekyll themes. Tools will
+                    range from development, design, services, hosting and
+                    automation.
+                </p>
+                <h2>5.其它</h2>
+                <p>
+                    You can use the mark tag to <mark>highlight</mark> text.
+                </p>
+                <p>
+                    <del>This line of text is meant to be treated as deleted
+                        text.</del>
+                </p>
+                <p><u>This line fo text will render as underlined.</u></p>
+                <p>
+                    <small>This line of text is meant to be treated as fine
+                        print.</small>
+                </p>
+                <p><b>This line rendered as bold text.</b></p>
+                <p><i>This line rendered as italicized text.</i></p>
+            </div>`,
+                    ppic: 'dis-7.jpg',
+                    pcreated_at: '2020-09-21 10:10:00',
+                    ttitle: [
+                        'blog',
+                        'blog',
+                        'blog'
+                    ],
+                    style: {}
+                },
+            ]
+        }
+    },
+    methods: {
+        picStyle: function (img) {
+            let imgURL = 'http://blog.megrax.space:1779/' + img;
+            return {
+                background: "url('" + imgURL + "') no-repeat center",
+                backgroundSize: "100% 100%"
+            }
+        }
+    }
 }
 </script>
 
@@ -306,6 +1183,7 @@ section {
     width: 438px;
     height: 100%;
     border-radius: 15px 0 0 15px;
+    transition: 0.5s ease-in-out;
 }
 
 .discovery-post:nth-child(2n + 1) .des {
@@ -357,6 +1235,7 @@ section {
     width: 438px;
     height: 100%;
     border-radius: 0 15px 15px 0;
+    transition: 0.5s ease-in-out;
 }
 
 .discovery-post:nth-child(2n) .des {
@@ -422,43 +1301,36 @@ section {
 #dis-post-pic-first {
     background: url('../../assets/img/dis-1.jpg') no-repeat center;
     background-size: 100% 100%;
-    transition: 0.5s ease-in-out;
 }
 
 #dis-post-pic-second {
     background: url('../../assets/img/dis-2.jpg') no-repeat center;
     background-size: 100% 100%;
-    transition: 0.5s ease-in-out;
 }
 
 #dis-post-pic-third {
     background: url('../../assets/img/dis-3.jpg') no-repeat center;
     background-size: 100% 100%;
-    transition: 0.5s ease-in-out;
 }
 
 #dis-post-pic-fourth {
     background: url('../../assets/img/dis-4.jpg') no-repeat center;
     background-size: 100% 100%;
-    transition: 0.5s ease-in-out;
 }
 
 #dis-post-pic-fifth {
     background: url('../../assets/img/dis-5.jpg') no-repeat center;
     background-size: 100% 100%;
-    transition: 0.5s ease-in-out;
 }
 
 #dis-post-pic-sixth {
     background: url('../../assets/img/dis-6.jpg') no-repeat center;
     background-size: 100% 100%;
-    transition: 0.5s ease-in-out;
 }
 
 #dis-post-pic-seventh {
     background: url('../../assets/img/dis-7.jpg') no-repeat center;
     background-size: 100% 100%;
-    transition: 0.5s ease-in-out;
 }
 
 .discovery-post:hover .pic {

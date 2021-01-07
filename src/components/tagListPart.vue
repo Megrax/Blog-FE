@@ -3,11 +3,7 @@
         <div class="tag-wrapper">
             <div class="des">共有5个标签</div>
             <div class="tag-area">
-                <div class="tag">#Blog</div>
-                <div class="tag">#Blog</div>
-                <div class="tag">#Blog</div>
-                <div class="tag">#Blog</div>
-                <div class="tag">#Blog</div>
+                <div class="tag" v-for="(tag,index) in tags" :key="index">#{{ tag.ttitle }}</div>
             </div>
         </div>
     </section>
@@ -15,7 +11,30 @@
 
 <script>
 export default {
-
+    data() {
+        return {
+            tags: [
+                {
+                    ttitle: 'blog',
+                },
+                {
+                    ttitle: 'blog',
+                },
+                {
+                    ttitle: 'blog',
+                },
+                {
+                    ttitle: 'blog',
+                },
+                {
+                    ttitle: 'blog',
+                },
+                {
+                    ttitle: 'blog',
+                },
+            ]
+        }
+    }
 }
 </script>
 

@@ -9,7 +9,7 @@
                     </p>
                     <p><label for="password">密码：</label></p>
                     <p>
-                        <input v-model="pwd" type="password" id="password" name="password" class="loginInput" placeholder="请输入密码" value="" />
+                        <input v-model="pwd" @keyup.enter="login" type="password" id="password" name="password" class="loginInput" placeholder="请输入密码" value="" />
                     </p>
                     <p><a class="forgetLink" href="#">忘记密码?</a></p>
                     <input id="remember" type="checkbox" name="remember" />

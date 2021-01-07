@@ -1,9 +1,47 @@
 <template>
     <section class="body">
         <!-- 博文 -->
-        <div class="title">第一篇博文</div>
+        <div class="title">{{ post.ptitle }}</div>
         <article>
-            <div class="bodywrapper">
+            <article v-html="post.pcontent">
+            </article>
+            <!-- 标签 -->
+            <aside>
+                <div class="tag" v-for="(tag,index) in post.ttitle" :key="index">#{{ tag }}</div>
+            </aside>
+        </article>
+        <div class="comment-submit">
+            <!-- 提交评论 -->
+            <form action="/posts/add_comment" class="submit_wrapper" method="POST">
+                <div class="information">
+                    <input type="text" required="required" placeholder="昵称/ID *必填" name="cperson" />
+                    <input type="text" required="required" placeholder="邮箱 *必填" name="cemail" />
+                </div>
+                <div class="comm">
+                    <textarea id="ccontent" name="ccontent" placeholder="看到这里了，留下一句评论吧！" required="required"></textarea>
+                </div>
+                <input type="hidden" name="pid" value="<%= post_info[0].pid %>" />
+                <input type="submit" value="提交" class="submit" />
+            </form>
+            <!-- 展示评论 -->
+            <div class="comments">
+                <div class="a-comment">
+                    <h4 class="com-id">Name</h4>
+                    <i class="com-date">2021.1.1</i>
+                    <p class="com-content">Content.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+</template>
+
+<script>
+export default {
+    data() {
+        return {
+            post: {
+                ptitle: '第一篇博文',
+                pcontent: `<div class="bodywrapper">
                 <div class="example-title">
                     <h1>文字排版</h1>
                 </div>
@@ -128,43 +166,15 @@
                 </p>
                 <p><b>This line rendered as bold text.</b></p>
                 <p><i>This line rendered as italicized text.</i></p>
-            </div>
-            <!-- 标签 -->
-            <aside>
-                <div class="tag">#Blog</div>
-                <div class="tag">#Blog</div>
-                <div class="tag">#Blog</div>
-                <div class="tag">#Blog</div>
-            </aside>
-        </article>
-        <div class="comment-submit">
-            <!-- 提交评论 -->
-            <form action="/posts/add_comment" class="submit_wrapper" method="POST">
-                <div class="information">
-                    <input type="text" required="required" placeholder="昵称/ID *必填" name="cperson" />
-                    <input type="text" required="required" placeholder="邮箱 *必填" name="cemail" />
-                </div>
-                <div class="comm">
-                    <textarea id="ccontent" name="ccontent" placeholder="看到这里了，留下一句评论吧！" required="required"></textarea>
-                </div>
-                <input type="hidden" name="pid" value="<%= post_info[0].pid %>" />
-                <input type="submit" value="提交" class="submit" />
-            </form>
-            <!-- 展示评论 -->
-            <div class="comments">
-                <div class="a-comment">
-                    <h4 class="com-id">Name</h4>
-                    <i class="com-date">2021.1.1</i>
-                    <p class="com-content">Content.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-</template>
-
-<script>
-export default {
-
+            </div>`,
+                ttitle: [
+                    'blog',
+                    'blog',
+                    'blog'
+                ]
+            }
+        }
+    }
 }
 </script>
 
