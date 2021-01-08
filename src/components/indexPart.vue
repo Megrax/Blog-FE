@@ -40,7 +40,6 @@
 
 <script>
 import axios from 'axios';
-import '../../assets/img/*.jpg';
 
 export default {
     data() {
@@ -344,41 +343,6 @@ section {
     border: 1px solid orange;
     color: orange;
     cursor: pointer;
-}
-
-#dis-post-pic-first {
-    background: url('../../assets/img/dis-1.jpg') no-repeat center;
-    background-size: 100% 100%;
-}
-
-#dis-post-pic-second {
-    background: url('../../assets/img/dis-2.jpg') no-repeat center;
-    background-size: 100% 100%;
-}
-
-#dis-post-pic-third {
-    background: url('../../assets/img/dis-3.jpg') no-repeat center;
-    background-size: 100% 100%;
-}
-
-#dis-post-pic-fourth {
-    background: url('../../assets/img/dis-4.jpg') no-repeat center;
-    background-size: 100% 100%;
-}
-
-#dis-post-pic-fifth {
-    background: url('../../assets/img/dis-5.jpg') no-repeat center;
-    background-size: 100% 100%;
-}
-
-#dis-post-pic-sixth {
-    background: url('../../assets/img/dis-6.jpg') no-repeat center;
-    background-size: 100% 100%;
-}
-
-#dis-post-pic-seventh {
-    background: url('../../assets/img/dis-7.jpg') no-repeat center;
-    background-size: 100% 100%;
 }
 
 .discovery-post:hover .pic {

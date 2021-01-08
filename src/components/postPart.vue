@@ -1,7 +1,7 @@
 <template>
     <section class="body">
         <!-- 博文 -->
-        <div class="title">{{ post.ptitle }}</div>
+        <div class="title" v-bind:style="picStyle(post.ppic)">{{ post.ptitle }}</div>
         <article>
             <article v-html="post.pcontent">
             </article>
@@ -56,7 +56,14 @@ export default {
         }
     },
     methods: {
-        submit() {
+        picStyle: function (img) {
+            let imgURL = 'http://blog.megrax.space:1779/' + img;
+            return {
+                background: "url('" + imgURL + "') rgba(0, 0, 0, 0.3) center center / 100% no-repeat",
+                backgroundBlendMode: "multiply",
+            }
+        },
+        submit: function () {
             let now = moment().locale('zh-cn').format('YYYY-MM-DD HH:mm:ss');
 
             let data = {
@@ -92,10 +99,6 @@ export default {
     align-items: center;
     width: 100vw;
     height: 430px;
-    background: url(../../assets/img/dis-1.jpg) rgba(0, 0, 0, 0.3) no-repeat
-        center;
-    background-blend-mode: multiply;
-    background-size: cover;
     color: snow;
     font-size: 40px;
 }
@@ -192,13 +195,11 @@ export default {
 .comments {
     margin-top: 20px;
     padding: 10px 0;
-    /* background-color: red; */
 }
 
 .a-comment {
     margin: 20px auto;
     width: 800px;
-    /* height: 220px; */
     padding: 20px 20px;
     background-color: #fff;
     box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3);

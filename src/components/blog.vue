@@ -7,12 +7,12 @@
 </template>
 
 <script>
-import headNav from './headNav';
-import indexPart from './indexPart';
-import postPart from './postPart';
-import postListPart from './postListPart';
-import tagListPart from './tagListPart';
-import footerCom from './footer';
+import headNav from './headNav.vue';
+import indexPart from './indexPart.vue';
+import postPart from './postPart.vue';
+import postListPart from './postListPart.vue';
+import tagListPart from './tagListPart.vue';
+import footerCom from './footer.vue';
 
 export default {
     data() {
