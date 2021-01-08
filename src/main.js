@@ -1,14 +1,18 @@
 import Vue from 'vue';
-import App from './App';
+import App from './App.vue';
 import VueRouter from 'vue-router';
 import VueCookies from 'vue-cookies';
+import axios from 'axios';
 
-import login from './components/login';
-import blog from './components/blog';
-import indexPart from './components/indexPart';
-import postPart from './components/postPart';
-import postListPart from './components/postListPart';
-import tagListPart from './components/tagListPart';
+import login from './components/login.vue';
+import blog from './components/blog.vue';
+import indexPart from './components/indexPart.vue';
+import postPart from './components/postPart.vue';
+import postListPart from './components/postListPart.vue';
+import tagListPart from './components/tagListPart.vue';
+
+Vue.prototype.axios = axios;
+Vue.prototype.globalUrl = "http://localhost:3000";
 
 const routes = [
   { path: '/login', component: login },
@@ -18,7 +22,7 @@ const routes = [
     children: [
       { path: '', component: indexPart },
       { path: 'index', component: indexPart },
-      { path: 'post', component: postPart },
+      { path: 'posts/:pid', component: postPart },
       { path: 'tag-list', component: tagListPart },
       { path: 'post-list', component: postListPart },
     ]

@@ -1,7 +1,7 @@
 <template>
     <section>
         <div class="tag-wrapper">
-            <div class="des">共有5个标签</div>
+            <div class="des">共有{{ Object.keys(tags).length }}个标签</div>
             <div class="tag-area">
                 <div class="tag" v-for="(tag,index) in tags" :key="index">#{{ tag.ttitle }}</div>
             </div>
@@ -10,30 +10,16 @@
 </template>
 
 <script>
+import axios from "axios"
+
 export default {
     data() {
         return {
-            tags: [
-                {
-                    ttitle: 'blog',
-                },
-                {
-                    ttitle: 'blog',
-                },
-                {
-                    ttitle: 'blog',
-                },
-                {
-                    ttitle: 'blog',
-                },
-                {
-                    ttitle: 'blog',
-                },
-                {
-                    ttitle: 'blog',
-                },
-            ]
+            tags: {}
         }
+    },
+    mounted() {
+        axios.get(this.globalUrl + '/tags').then(res => (this.tags = res.data));
     }
 }
 </script>

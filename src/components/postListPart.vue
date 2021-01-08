@@ -1,45 +1,18 @@
 <template>
     <section class="body">
         <div class="post" id="post1" v-for="(post,index) in posts" :key="index" v-bind:style="picStyle(post.ppic)">
-            <router-link to="/blog/post">{{post.ptitle}}</router-link>
+            <router-link v-bind:to="pidTarget(post.pid)">{{post.ptitle}}</router-link>
         </div>
     </section>
 </template>
 
 <script>
+import axios from "axios";
+
 export default {
     data() {
         return {
-            posts: [
-                {
-                    ptitle: '第一篇博文',
-                    ppic: 'dis-1.jpg'
-                },
-                {
-                    ptitle: '第一篇博文',
-                    ppic: 'dis-1.jpg'
-                },
-                {
-                    ptitle: '第一篇博文',
-                    ppic: 'dis-1.jpg'
-                },
-                {
-                    ptitle: '第一篇博文',
-                    ppic: 'dis-1.jpg'
-                },
-                {
-                    ptitle: '第一篇博文',
-                    ppic: 'dis-1.jpg'
-                },
-                {
-                    ptitle: '第一篇博文',
-                    ppic: 'dis-1.jpg'
-                },
-                {
-                    ptitle: '第一篇博文',
-                    ppic: 'dis-1.jpg'
-                }
-            ]
+            posts: {}
         }
     },
     methods: {
@@ -50,7 +23,14 @@ export default {
                 backgroundBlendMode: "multiply",
                 backgroundSize: "100%"
             }
+        },
+        pidTarget: function (pid) {
+            let pidURL = '/blog/posts/' + pid;
+            return pidURL;
         }
+    },
+    mounted() {
+        axios.get(this.globalUrl + '/posts').then(res => (this.posts = res.data));
     }
 }
 </script>

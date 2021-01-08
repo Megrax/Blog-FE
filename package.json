@@ -12,6 +12,9 @@
     "build-prod": "parcel build src/index.html"
   },
   "dependencies": {
+    "axios": "^0.21.1",
+    "moment": "^2.29.1",
+    "qs": "^6.9.4",
     "vue": "^2.6.12",
     "vue-cookies": "^1.7.4",
     "vue-hot-reload-api": "^2.3.4",
